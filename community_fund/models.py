@@ -2,7 +2,6 @@ import uuid
 from os.path import basename
 from pathlib import Path
 
-from django.conf import settings
 from django.contrib.auth.models import User
 from django.db import models, transaction
 from django.template.loader import render_to_string
@@ -71,7 +70,6 @@ class CommunityActionFundApplication(models.Model):
             {
                 "application": self,
                 "form": CommunityActionFundApplicationForm(label_suffix=""),
-                "site_url": settings.SITE_URL.rstrip("/"),
             },
         )
 

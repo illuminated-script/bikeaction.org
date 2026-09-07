@@ -288,7 +288,12 @@ MEDIA_ROOT = BASE_DIR / "media"
 TESTING = "test" in sys.argv
 
 STORAGES = {
-    "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+        "OPTIONS": {
+            "base_url": f"{SITE_URL.rstrip('/')}{MEDIA_URL}",
+        },
+    },
     "staticfiles": {
         # Use simpler storage during tests to avoid manifest requirement
         "BACKEND": (
